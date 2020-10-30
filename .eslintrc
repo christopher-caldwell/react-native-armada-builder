@@ -1,0 +1,52 @@
+{
+  "extends": [
+    "plugin:react-native/all"
+  ],
+  "plugins":[
+    "prettier",
+    "react",
+    "react-native",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "react-native/react-native": true,
+    "es6": true,
+    "jest": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+    // "project": "./tsconfig.json"
+  },
+  "ignorePatterns": ["node_modules/**", "**/*.d.ts"],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": 2,
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "Function": {
+            "message": "Prefer a specific function type, like `() => void`."
+          }
+        }
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "printWidth": 120,
+        "singleQuote": true,
+        "semi": false,
+        "arrowParens": "avoid",
+        "bracketSpacing": true,
+        "jsxSingleQuote": true
+      }
+    ]
+  }
+}
