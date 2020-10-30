@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from './views/Home'
-import FleetBuilder from './views/FleetBuilder'
+import FleetBuilder from './views/fleet-builder'
 import { homePage, fleetBuilder } from './constants/navigation'
 
 const Tab = createBottomTabNavigator()

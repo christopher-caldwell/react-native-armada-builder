@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import { View, Text } from 'react-native'
 
-const FleetBuilder: FC = () => {
+const ChooseShip: FC = () => {
   return (
     <View>
-      <Text>Fleet!</Text>
+      <Text>Choose a Ship</Text>
     </View>
   )
 }
 
-export default FleetBuilder
+export default ChooseShip
