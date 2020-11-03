@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
 import { fleetBuilder } from '../constants/navigation'
+import { NavigationProps } from '../interfaces/'
 
 const FleetBuilder: FC<Props> = props => {
   console.log('props', props)
@@ -13,11 +14,7 @@ const FleetBuilder: FC<Props> = props => {
   )
 }
 
-interface Props {
-  navigation: {
-    navigate: (nameOfScreen: string) => void
-  }
-}
+interface Props extends NavigationProps {}
 
 const styles = StyleSheet.create({
   container: {

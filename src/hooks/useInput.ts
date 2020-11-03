@@ -1,5 +1,4 @@
 import { useState, Dispatch, SetStateAction } from 'react'
-import { NativeSyntheticEvent, TextInputChangeEventData } from 'react-native'
 
 interface UseInputReturn {
   value: string
@@ -7,7 +6,7 @@ interface UseInputReturn {
   reset: () => void
   bind: {
     value: string
-    onChange: (event: NativeSyntheticEvent<TextInputChangeEventData>) => void
+    onChangeText: (text: string) => void
   }
 }
 export const useInput = (initialValue: string): UseInputReturn => {
@@ -19,8 +18,8 @@ export const useInput = (initialValue: string): UseInputReturn => {
     reset: () => setValue(''),
     bind: {
       value,
-      onChange: event => {
-        setValue(event.target.value)
+      onChangeText: text => {
+        setValue(text)
       },
     },
   }
