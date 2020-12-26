@@ -24,6 +24,8 @@
   },
   "ignorePatterns": ["node_modules/**", "**/*.d.ts"],
   "rules": {
+    "react-native/no-color-literals": "off",
+    "react-native/sort-styles": "off",
     "@typescript-eslint/no-explicit-any": 2,
     "@typescript-eslint/ban-types": [
       "error",

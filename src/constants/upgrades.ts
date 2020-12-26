@@ -1,3 +1,6 @@
+import { Dimensions } from 'react-native'
+import Constants from 'expo-constants'
+
 import { UpgradeSet } from '../interfaces/cards'
 
 type UpgradeMapForDisplayText = {
@@ -19,3 +22,10 @@ export const upgradeMapForDisplayText: UpgradeMapForDisplayText = {
   'support-team': 'Support Team',
   officer: 'Officer',
 }
+
+const { height } = Dimensions.get('window')
+const φ = (1 + Math.sqrt(5)) / 2
+
+export const minHeaderHeight = 64 + Constants.statusBarHeight
+export const maxHeaderHeight = height * (1 - 1 / φ)
+export const headerDelta = maxHeaderHeight - minHeaderHeight

@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    textAlign: 'center'
-  }
+    textAlign: 'center',
+  },
 })
 
 export default FleetBuilder

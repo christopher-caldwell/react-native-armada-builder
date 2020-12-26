@@ -1,23 +1,24 @@
 import React, { FC } from 'react'
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { Container, Header, Icon, Right, Button, Left, Text } from 'native-base'
 import styled from 'styled-components/native'
 
 import { chooseShip } from '../../constants/navigation'
+import { headerDelta } from '../../constants/upgrades'
 import { NavigationProps } from '../../interfaces/'
 import { Ship, UpgradeSet } from '../../interfaces/cards'
 import Upgrade from '../../components/upgrade/Upgrade'
+import ShipImage from '../../components/upgrade/Image'
+import ShipBody from '../../components/upgrade/UpgradeBody'
 
 const ChooseShip: FC<Props> = ({ navigation, selectedShip }) => {
   return (
     <Container>
       <ChooseUpgradeHeader navigate={navigation.navigate} />
-      <ShipImageBackground />
-      <Image
-        style={styles.shipImage}
-        source={require('../../assets/images/cards/ship/imperial/trimmed-arquitens-class-command-cruiser.jpg')}
-      ></Image>
-      <ShipHeader>{selectedShip?.title}</ShipHeader>
+      <ShipImage
+        imgSrc={require('../../assets/images/cards/ship/imperial/trimmed-arquitens-class-command-cruiser.jpg')}
+      />
+      <ShipBody />
 
       <UpgradesContainer>
         {Object.entries(selectedShip?.upgrades || {}).map(([upgradeName, upgrade]) => (
@@ -56,33 +57,16 @@ interface UpgradeProps {
 
 const SaveButtonContainer = styled.View`
   position: absolute;
-  bottom: 10;
-  left: 30;
-  right: 30;
+  bottom: 10px;
+  left: 30px;
+  right: 30px;
   display: flex;
   justify-content: center;
 `
 
-const UpgradesContainer = styled.View`
-  margin-top: 10%;
-`
-
-const ShipImageBackground = styled.View`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: -1000;
-  opacity: 0.8;
-  height: 10%;
-  background-color: black;
-`
-
-const ShipHeader = styled.Text`
-  font-size: 32px;
-  font-weight: bold;
-  margin-left: 15px;
-  color: white;
+const UpgradesContainer = styled.ScrollView`
+  margin-top: ${headerDelta + 10}px;
+  padding-bottom: 300px;
 `
 
 const styles = StyleSheet.create({
@@ -91,13 +75,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     textAlign: 'center',
     width: '100%',
-  },
-  shipImage: {
-    position: 'absolute',
-    top: 40,
-    width: '100%',
-    zIndex: -100,
-    // height: '10%',
   },
 })
 
